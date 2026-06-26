@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#421231" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23421231'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='600' font-size='21' fill='%23ff5a25' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E"
+    />
+    <!-- ===== Asset host (S3): single source of truth for CSS + images ===== -->
+    <script>
+      window.BASE_URL =
+        "https://s3.us-east-2.amazonaws.com/directory.www.portraitcare.com/directory/portrait-lp-gclid-mustafa";
+      (function () {
+        var head = document.head || document.getElementsByTagName("head")[0];
+        function link(attrs) {
+          var l = document.createElement("link");
+          for (var k in attrs) l.setAttribute(k, attrs[k]);
+          head.appendChild(l);
+        }
+        // Preload the hero image (LCP) and load the external stylesheet from S3.
+        link({
+          rel: "preload",
+          as: "image",
+          fetchpriority: "high",
+          href: BASE_URL + "/img/hero-poster.webp",
+        });
+        link({ rel: "stylesheet", href: BASE_URL + "/styles.css" });
+      })();
+    </script>
+    <!-- Google Analytics (GA4 - same property as portraitcare.com) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2XV9CDXSVX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-2XV9CDXSVX");
+    </script>
+    <title>Medical Aesthetic Supplies &amp; Dermal Fillers | Portrait</title>
+    <meta
+      name="description"
+      content="National-account pricing on medical aesthetic supplies for independent practices - dermal fillers, neurotoxins, skincare, and med spa essentials."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Independent practice. Enterprise buying power."
+    />
+    <meta
+      property="og:description"
+      content="National-account pricing on 2,000+ products. No revenue share, no equity, no lock-in - the buying power of a large group, on independent terms."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Independent practice. Enterprise buying power."
+    />
+    <meta
+      name="twitter:description"
+      content="National-account pricing on 2,000+ products. No revenue share, no equity, no lock-in - the buying power of a large group, on independent terms."
+    />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <div class="progress" id="progress"></div>
+    <!-- ===== HERO ===== -->
+    <header class="hero-cine" id="main">
+      <div class="hc-photo">
+        <img
+          data-src="img/hero-poster.webp"
+          alt="An independent practice owner in her studio"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hc-grad"></div>
+      <div class="wrap hc-wrap">
+        <div class="hc-copy">
+          <div class="hc-eye">
+            Medical Aesthetic Supplies - Dermal Fillers, Neurotoxins &amp; Med
+            Spa Supplies
+          </div>
+          <h1 class="hc-h">
+            <em>Independent</em> practice. <em>Enterprise</em> buying power.
+          </h1>
+          <p class="hc-promise">
+            National-account pricing on Botox, Juv&eacute;derm, Daxxify, and
+            2,000+ products. No revenue share. No equity. No long-term
+            contracts.
+          </p>
+          <div class="hc-cta-row">
+            <a class="hc-cta-primary" href="#calc-section"
+              >See what you'd save <span class="arr2">&darr;</span></a
+            >
+            <a class="hc-cta-ghost open-gate" href="#get-started"
+              >Get my pricing</a
+            >
+          </div>
+          <div class="hc-trust">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            Trusted by 1,200+ independent practices.
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== CALCULATOR (moved up) ===== -->
+    <section class="scene calcsec" id="calc-section">
+      <div class="wrap">
+        <div class="tag reveal">See what you keep</div>
+        <h2 class="reveal" style="--i: 1">
+          See what your practice could <em>keep.</em>
+        </h2>
+        <p class="lead reveal" style="--i: 2">
+          Tell us roughly what you spend on supplies each month. We'll estimate
+          the savings on the products you already buy, the rebates you could
+          earn back, and the software costs you may no longer need to pay.
+        </p>
+        <div class="calc calc2 reveal" id="calc">
+          <div class="calc2-controls">
+            <div class="perslab">Where does your practice fit?</div>
+            <div class="pers" id="persRow"></div>
+            <div class="clab">Monthly supply spend</div>
+            <div class="spendrow">
+              <div class="spend" id="spend">$8,500</div>
+              <small>at today's prices</small>
+            </div>
+            <input
+              type="range"
+              id="slider"
+              min="2500"
+              max="40000"
+              step="500"
+              value="8500"
+              aria-label="Monthly supply spend"
+            />
+            <div class="ends"><span>$2.5k</span><span>$40k+</span></div>
+            <div class="ladder" id="ladderRow"></div>
+            <div class="ladlab" id="ladlab">
+              Higher status unlocks better pricing and more back on every order.
+            </div>
+          </div>
+          <div class="calc2-result">
+            <div class="keep" id="keep">$18,696</div>
+            <div class="keepl">you'd keep in <b>year one</b></div>
+            <div class="persline" id="persline"></div>
+            <div class="bgrid">
+              <div class="bcell">
+                <div class="bv" id="bSupply">$15,096</div>
+                <div class="bk">
+                  Saved on supplies
+                  <span style="opacity: 0.7">(instant + points back)</span>
+                </div>
+              </div>
+              <div class="bcell">
+                <div class="bv" id="bSoft">$3,600</div>
+                <div class="bk">Software you stop paying for</div>
+              </div>
+            </div>
+            <div class="cnote" id="cnote">
+              Savings scale with your status tier and are weighted by what
+              practices actually order; many products run higher. "Saved on
+              supplies" combines your instant discount at checkout with rebate
+              points back, redeemable on future orders. Software is what
+              independents typically pay for an equivalent practice stack. Your
+              exact numbers depend on your product mix.
+            </div>
+            <a class="cgo open-gate" href="#get-started"
+              >See your full savings <span class="arr">&rsaquo;</span></a
+            >
+          </div>
+        </div>
+        <div class="tierladder reveal">
+          <div class="tl-head">
+            <span class="tl-k">Your status determines your discount</span
+            ><span class="tl-sub"
+              >Volume keeps it &middot; higher status, higher savings on every
+              order</span
+            >
+          </div>
+          <div class="tl-rail">
+            <div class="tl-step t-bronze">
+              <span class="tl-up">save up to</span
+              ><span class="tl-pct">26%</span><span class="tl-tier">Bronze</span
+              ><span class="tl-load">$2,000 pre-load</span>
+            </div>
+            <div class="tl-step t-silver">
+              <span class="tl-up">save up to</span
+              ><span class="tl-pct">30%</span><span class="tl-tier">Silver</span
+              ><span class="tl-load">$4,000 pre-load</span>
+            </div>
+            <div class="tl-step t-gold">
+              <span class="tl-up">save up to</span
+              ><span class="tl-pct">39%</span><span class="tl-tier">Gold</span
+              ><span class="tl-load">$8,000 pre-load</span>
+            </div>
+            <div class="tl-step t-plat">
+              <span class="tl-up">save up to</span
+              ><span class="tl-pct">47%</span
+              ><span class="tl-tier">Platinum</span
+              ><span class="tl-load">$15,000 pre-load</span>
+            </div>
+            <div class="tl-step t-diamond">
+              <span class="tl-up">save up to</span
+              ><span class="tl-pct">75%</span
+              ><span class="tl-tier">Diamond</span
+              ><span class="tl-load">$25,000+ pre-load</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROOF: MEMBER VIDEOS + CASE STUDIES (merged, dark) ===== -->
+    <section class="scene dark vidsec">
+      <div class="wrap">
+        <div class="tag reveal">Real members, real results</div>
+        <h2 class="reveal" style="--i: 1">
+          1,200+ practices already keep more, and say so.
+        </h2>
+      </div>
+      <div class="marquee reveal">
+        <div class="track" id="vtrack">
+          <a
+            class="vthumb"
+            href="https://www.youtube.com/watch?v=5z94EiYEUBA"
+            target="_blank"
+            rel="noopener"
+            ><img
+              data-src="img/videos/5z94EiYEUBA.webp"
+              alt="Skin & Soul Aesthetics"
+              loading="lazy"
+              decoding="async"
+            /><span class="play"><span></span></span
+            ><span class="cap">Skin &amp; Soul Aesthetics</span></a
+          >
+          <a
+            class="vthumb"
+            href="https://www.youtube.com/watch?v=TqwpNKnMlr4"
+            target="_blank"
+            rel="noopener"
+            ><img
+              data-src="img/videos/TqwpNKnMlr4.webp"
+              alt="Napa Aesthetics"
+              loading="lazy"
+              decoding="async"
+            /><span class="play"><span></span></span
+            ><span class="cap">Napa Aesthetics</span></a
+          >
+          <a
+            class="vthumb"
+            href="https://www.youtube.com/watch?v=dt43lOucKIs"
+            target="_blank"
+            rel="noopener"
+            ><img
+              data-src="img/videos/dt43lOucKIs.webp"
+              alt="Stacy Driver, BSN RN CANS"
+              loading="lazy"
+              decoding="async"
+            /><span class="play"><span></span></span
+            ><span class="cap">Stacy Driver, BSN RN CANS</span></a
+          >
+          <a
+            class="vthumb"
+            href="https://www.youtube.com/watch?v=JrbR-avKj7k"
+            target="_blank"
+            rel="noopener"
+            ><img
+              data-src="img/videos/JrbR-avKj7k.webp"
+              alt="Brittney Aesthetics"
+              loading="lazy"
+              decoding="async"
+            /><span class="play"><span></span></span
+            ><span class="cap">Brittney Aesthetics</span></a
+          >
+          <a
+            class="vthumb"
+            href="https://www.youtube.com/watch?v=8FtnsrBDM5M"
+            target="_blank"
+            rel="noopener"
+            ><img
+              data-src="img/videos/8FtnsrBDM5M.webp"
+              alt="Skin Sirens Aesthetics"
+              loading="lazy"
+              decoding="async"
+            /><span class="play"><span></span></span
+            ><span class="cap">Skin Sirens Aesthetics</span></a
+          >
+          <a
+            class="vthumb"
+            href="https://www.youtube.com/watch?v=lA3XSXOXxzE"
+            target="_blank"
+            rel="noopener"
+            ><img
+              data-src="img/videos/lA3XSXOXxzE.webp"
+              alt="Skin Sirens LA"
+              loading="lazy"
+              decoding="async"
+            /><span class="play"><span></span></span
+            ><span class="cap">Skin Sirens LA</span></a
+          >
+        </div>
+      </div>
+      <div class="wrap">
+        <p class="lead reveal" style="--i: 2">
+          Four real Portrait members, fully anonymized for privacy - with the
+          real purchased volume behind each.
+        </p>
+        <div class="proofrow reveal">
+          <div class="pcard feat pcard-hero">
+            <div class="ph-left">
+              <div class="ptier">
+                <span class="dot d-dia"></span>Diamond status &middot; flagship
+                member
+              </div>
+              <div class="parch">A flagship independent med spa</div>
+              <div class="ploc">
+                Scaling a premium practice on one system, with no revenue share
+                and no equity given up.
+              </div>
+            </div>
+            <div class="ph-right">
+              <div class="psaved" data-count>$401K</div>
+              <div class="psavedl">
+                purchased on Portrait &middot; 36 orders in 8 months
+              </div>
+            </div>
+          </div>
+          <div class="pcard">
+            <div class="ptier">
+              <span class="dot d-bro"></span>Bronze status
+            </div>
+            <div class="parch">A new med spa</div>
+            <div class="ploc">Live from day one</div>
+            <div class="psaved" data-count>$19K</div>
+            <div class="psavedl">purchased &middot; 10 orders in 8 months</div>
+          </div>
+          <div class="pcard">
+            <div class="ptier">
+              <span class="dot d-sil"></span>Silver status
+            </div>
+            <div class="parch">A growing med spa</div>
+            <div class="ploc">Ordering more every month</div>
+            <div class="psaved" data-count>$29K</div>
+            <div class="psavedl">purchased &middot; 18 orders in 5 months</div>
+          </div>
+          <div class="pcard">
+            <div class="ptier"><span class="dot d-gol"></span>Gold status</div>
+            <div class="parch">An established med spa</div>
+            <div class="ploc">Consolidated supply on Portrait</div>
+            <div class="psaved" data-count>$85K</div>
+            <div class="psavedl">purchased &middot; 27 orders in 9 months</div>
+          </div>
+        </div>
+        <div class="proofbar reveal">
+          <div class="qrow">
+            <div class="qavatar init">&ldquo;</div>
+            <div>
+              <div class="q">
+                "Portrait has brought me more financial freedom than I've ever
+                known in my career."
+              </div>
+              <div class="qa">A Portrait member</div>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="b" data-count>1,200+</div>
+            <div class="l">independent practices run on Portrait</div>
+          </div>
+        </div>
+        <p class="fine reveal">
+          Anonymized Portrait members. Purchased volume and order counts are
+          Portrait marketplace data (June 2026).
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== HOW PORTRAIT COMPARES ===== -->
+    <section class="scene paper" style="background: var(--bg)">
+      <div class="wrap">
+        <div class="tag reveal">Why independent practices choose Portrait</div>
+        <div class="cmp-head reveal">
+          <h2 style="--i: 1">
+            The <em>leverage</em> of a larger organization. The
+            <em>control</em> of an independent practice.
+          </h2>
+          <p class="lead" style="max-width: 52ch">
+            A "partner" takes a slice of every dollar you earn, forever - what
+            starts as a percentage becomes tens of thousands leaving your
+            practice every year. Portrait takes none of it. You get the buying
+            power and software of a large group in one system, with no share of
+            your revenue, no equity in your practice, and no control over your
+            data.
+          </p>
+        </div>
+        <div class="hrule reveal" style="--i: 2"></div>
+        <div class="tablewrap reveal">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 22%"></th>
+                <th class="po" style="width: 25%">
+                  Portrait<span class="th-best">Best for owners</span>
+                </th>
+                <th>Practice software</th>
+                <th>Aggregator</th>
+                <th>Distributor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="rl">Buying power</td>
+                <td data-label="Portrait" class="po">
+                  <span class="yes"
+                    >National-account pricing, save up to 60%*</span
+                  >
+                </td>
+                <td data-label="Practice software">
+                  <span class="no">None</span>, software only
+                </td>
+                <td data-label="Aggregator">Group pricing</td>
+                <td data-label="Distributor">List price, marked up</td>
+              </tr>
+              <tr>
+                <td class="rl">Revenue share</td>
+                <td data-label="Portrait" class="po">
+                  <span class="yes">None</span>
+                </td>
+                <td data-label="Practice software">None</td>
+                <td data-label="Aggregator">
+                  <span class="no">A share of your revenue</span>
+                </td>
+                <td data-label="Distributor">None</td>
+              </tr>
+              <tr>
+                <td class="rl">Equity in your practice</td>
+                <td data-label="Portrait" class="po">
+                  <span class="yes">None, you own 100%</span>
+                </td>
+                <td data-label="Practice software">None</td>
+                <td data-label="Aggregator">
+                  <span class="no">Equity / partnership</span>
+                </td>
+                <td data-label="Distributor">None</td>
+              </tr>
+              <tr>
+                <td class="rl">Ownership of your data</td>
+                <td data-label="Portrait" class="po">
+                  <span class="yes">Yours to keep, no export fees</span>
+                </td>
+                <td data-label="Practice software">
+                  <span class="no">Often held</span>
+                </td>
+                <td data-label="Aggregator">Varies</td>
+                <td data-label="Distributor">n/a</td>
+              </tr>
+              <tr>
+                <td class="rl">Contract</td>
+                <td data-label="Portrait" class="po">
+                  <span class="yes">No lock-in</span>
+                </td>
+                <td data-label="Practice software">
+                  <span class="no">Multi-year</span>
+                </td>
+                <td data-label="Aggregator">Multi-year</td>
+                <td data-label="Distributor">Order by order</td>
+              </tr>
+              <tr>
+                <td class="rl">Compliance support</td>
+                <td data-label="Portrait" class="po">
+                  <span class="yes">Built in</span>
+                </td>
+                <td data-label="Practice software">Varies</td>
+                <td data-label="Aggregator">Some</td>
+                <td data-label="Distributor"><span class="no">On you</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="quotes-head reveal">
+          The problems that led practices to
+          <em style="color: var(--orange-ink)">Portrait</em>...
+        </div>
+        <div class="quotes">
+          <div class="qcard reveal" style="--i: 0">
+            <div class="qt">
+              "They hold your data hostage. It costs $1,120 to export your own
+              patient records."
+            </div>
+            <div class="qs">Real review of a leading practice platform</div>
+            <div class="qp">
+              With Portrait, your data is yours. No export fee, ever.
+            </div>
+          </div>
+          <div class="qcard reveal" style="--i: 1">
+            <div class="qt">
+              "I added two NPs and my bill doubled. By the time you add features
+              and support, you're paying 3x."
+            </div>
+            <div class="qs">Real review of a leading practice platform</div>
+            <div class="qp">
+              Portrait is one flat membership. Status is earned, never charged
+              per seat.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHAT PORTRAIT IS (marketplace + system, merged) ===== -->
+    <section class="scene paper">
+      <div class="wrap">
+        <div class="tag reveal">What Portrait is</div>
+        <h2 class="reveal" style="--i: 1">
+          <em>One</em> system for buying, running, and growing your practice.
+        </h2>
+        <div class="hrule reveal" style="--i: 2"></div>
+        <p class="lead reveal" style="--i: 3">
+          Most practices stitch together vendors, software, and marketing tools.
+          Portrait brings them together in one system, combining
+          national-account pricing with the software to run and grow your
+          practice.
+        </p>
+        <div class="pmarq reveal">
+          <div class="ptrack marq-dup">
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-badge">Most ordered</span
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/botox.webp"
+                  alt="Botox Cosmetic vial at wholesale pricing for medical practices"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Botox&reg; Cosmetic</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-badge">Most ordered</span
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/juvederm.webp"
+                  alt="Juvéderm dermal filler syringe at wholesale pricing for med spas"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Juv&eacute;derm&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-badge">Most ordered</span
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/mkt/glp1.webp"
+                  alt="Semaglutide weight-loss injection vial at wholesale pricing for clinics"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Semaglutide</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/daxxify.webp"
+                  alt="Daxxify neurotoxin vial, buy at wholesale pricing for medical practices"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">DAXXIFY&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/restylane.webp"
+                  alt="Restylane dermal filler syringe at wholesale pricing for med spas"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Restylane&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/dysport.webp"
+                  alt="Dysport neurotoxin vial at wholesale pricing for medical practices"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Dysport&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/sculptra.webp"
+                  alt="Sculptra biostimulator vial, buy at wholesale pricing for med spas"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Sculptra&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img pack"
+                ><img
+                  data-src="img/brands/skinpen.webp"
+                  alt="SkinPen microneedling device at wholesale pricing for clinics"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">SkinPen&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img pack"
+                ><img
+                  data-src="img/brands/rha.webp"
+                  alt="RHA Collection dermal filler syringes at wholesale pricing for med spas"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">RHA&reg; Collection</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/jeuveau.webp"
+                  alt="Jeuveau neurotoxin vial at wholesale pricing for medical practices"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Jeuveau&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/mkt/serums.webp"
+                  alt="SkinMedica professional skincare at wholesale pricing for clinics"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">SkinMedica&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/brands2/letybo.webp"
+                  alt="Letybo neurotoxin vial at wholesale pricing for med spas"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Letybo&reg;</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+            <a class="pcardm open-gate" href="#get-started"
+              ><span class="pcm-img"
+                ><img
+                  data-src="img/mkt/glp1.webp"
+                  alt="Tirzepatide weight-loss injection vial at wholesale pricing for clinics"
+                  loading="lazy"
+                  decoding="async" /></span
+              ><span class="pcm-body"
+                ><span class="pcm-cat">Tirzepatide</span
+                ><span class="pcm-save">Member price</span></span
+              ></a
+            >
+          </div>
+        </div>
+        <div class="suppliers reveal">
+          <div class="sl">A few of the names inside the marketplace</div>
+          <div class="srow">
+            <span>Allergan</span><span>Galderma</span><span>Evolus</span
+            ><span>Revance</span><span>Prollenium</span><span>Benev</span
+            ><span>Crown Aesthetics</span><span>SkinMedica</span
+            ><span>ZO Skin Health</span><span>Alastin</span
+            ><span>DiamondGlow</span>
+          </div>
+        </div>
+        <p class="fine reveal" style="margin-top: 1.5rem">
+          *Savings vs. manufacturer list price. Actual savings vary by product,
+          volume, and membership status.
+        </p>
+        <div class="onesys reveal">
+          <div class="onesys-top">
+            <div class="onesys-h">
+              Portrait, <span class="em">one system</span>
+            </div>
+            <div class="onesys-sub">one login &middot; one relationship</div>
+          </div>
+          <div class="sysgrid">
+            <a class="syscell lead-cell open-gate" href="#get-started"
+              ><div class="sc-t">Marketplace</div>
+              <div class="sc-d">
+                National-account pricing on the brands you already buy.
+              </div></a
+            >
+            <a class="syscell s2 open-gate" href="#get-started"
+              ><div class="sc-t">Core EHR</div>
+              <div class="sc-d">
+                Purpose-built for aesthetics. Free, Bronze and up.
+              </div></a
+            >
+            <a class="syscell open-gate" href="#get-started"
+              ><div class="sc-t">Scheduling</div>
+              <div class="sc-d">
+                Replace your booking tool. Built for aesthetics, no separate
+                subscription.
+              </div></a
+            >
+            <a class="syscell open-gate" href="#get-started"
+              ><div class="sc-t">Payments</div>
+              <div class="sc-d">
+                Accept payments inside the same system. No Square, no extra
+                fees.
+              </div></a
+            >
+            <a class="syscell open-gate" href="#get-started"
+              ><div class="sc-t">Inventory</div>
+              <div class="sc-d">
+                Tracks automatically against what you ordered. No spreadsheet
+                required.
+              </div></a
+            >
+            <a class="syscell open-gate" href="#get-started"
+              ><div class="sc-t">AI assistant</div>
+              <div class="sc-d">Intake, notes &amp; follow-ups</div></a
+            >
+            <a class="syscell s2 open-gate" href="#get-started"
+              ><div class="sc-t">Marketing &amp; comms</div>
+              <div class="sc-d">Campaigns, website, and a unified inbox</div></a
+            >
+            <a class="syscell s2 open-gate" href="#get-started"
+              ><div class="sc-t">Compliance</div>
+              <div class="sc-d">MD matching, GFE, and HIPAA, handled</div></a
+            >
+          </div>
+          <div class="sysfoot">
+            <span>One login</span><span>One relationship, not eight</span
+            ><span>One source of truth</span
+            ><span>Your data, always yours</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TWO WAYS IN (moved above FAQ) ===== -->
+    <section class="scene paper" id="start">
+      <div class="wrap">
+        <div class="tag reveal">Two ways to start</div>
+        <h2 class="reveal" style="--i: 1">
+          Two ways in. Both keep you <em>independent.</em>
+        </h2>
+        <div class="hrule reveal" style="--i: 2"></div>
+        <p class="qsub reveal">Portrait is built for you if:</p>
+        <div class="qualify">
+          <div class="qitem reveal" style="--i: 0">
+            <span class="qk">&#10003;</span>You own your practice, and you want
+            to keep it that way.
+          </div>
+          <div class="qitem reveal" style="--i: 1">
+            <span class="qk">&#10003;</span>You buy your own supply, and you
+            feel the markup.
+          </div>
+          <div class="qitem reveal" style="--i: 2">
+            <span class="qk">&#10003;</span>You want to keep more of what you
+            earn - without giving anyone a cut.
+          </div>
+        </div>
+        <div class="startgrid wide">
+          <div class="scard a reveal" style="--i: 0">
+            <div class="for">New or early-stage practices</div>
+            <div class="nm">New Practice Setup</div>
+            <div class="pr">$1,499 <small>one-time</small></div>
+            <p class="sdesc">
+              Everything you need to open legally, launch fast, and order from
+              day one.
+            </p>
+            <ul>
+              <li>Medical Director matched, compliance handled</li>
+              <li>Business entity creation support</li>
+              <li>EHR and marketplace live from day one</li>
+            </ul>
+          </div>
+          <div class="scard b reveal" style="--i: 1">
+            <div class="for">New &amp; established practices</div>
+            <div class="nm">Pre-load</div>
+            <div class="pr">$2,000 <small>to $25,000</small></div>
+            <p class="sdesc">
+              Put money on your account and it works harder from day one.
+            </p>
+            <ul>
+              <li>
+                Converts 1:1 into marketplace credit, sets your starting status
+              </li>
+              <li>Locks in a higher discount from your first order</li>
+              <li>Run alongside your current supplier while you switch</li>
+            </ul>
+          </div>
+        </div>
+        <div class="climbwrap reveal" style="--i: 2">
+          <div class="climb-head">
+            <span class="climb-k"
+              >The more you pre-load, the more you keep.</span
+            ><span class="climb-sub"
+              >Your pre-load sets your starting status - higher status, a higher
+              discount from day one.</span
+            >
+          </div>
+          <div class="climb">
+            <div class="climb-step" style="--tc: #9c6f3a; --h: 88px">
+              <div class="climb-bar">
+                <span class="climb-up">save up to</span
+                ><span class="climb-pct">26%</span>
+              </div>
+              <div class="climb-base">
+                <span class="climb-load">$2,000</span
+                ><span class="climb-tier">Bronze</span>
+              </div>
+            </div>
+            <div class="climb-step" style="--tc: #73808d; --h: 104px">
+              <div class="climb-bar">
+                <span class="climb-up">save up to</span
+                ><span class="climb-pct">30%</span>
+              </div>
+              <div class="climb-base">
+                <span class="climb-load">$4,000</span
+                ><span class="climb-tier">Silver</span>
+              </div>
+            </div>
+            <div class="climb-step" style="--tc: #b08815; --h: 134px">
+              <div class="climb-bar">
+                <span class="climb-up">save up to</span
+                ><span class="climb-pct">39%</span>
+              </div>
+              <div class="climb-base">
+                <span class="climb-load">$8,000</span
+                ><span class="climb-tier">Gold</span>
+              </div>
+            </div>
+            <div class="climb-step" style="--tc: #5f8398; --h: 164px">
+              <div class="climb-bar">
+                <span class="climb-up">save up to</span
+                ><span class="climb-pct">47%</span>
+              </div>
+              <div class="climb-base">
+                <span class="climb-load">$15,000</span
+                ><span class="climb-tier">Platinum</span>
+              </div>
+            </div>
+            <div class="climb-step" style="--tc: var(--plum); --h: 226px">
+              <div class="climb-bar">
+                <span class="climb-up">save up to</span
+                ><span class="climb-pct">75%</span>
+              </div>
+              <div class="climb-base">
+                <span class="climb-load">$25,000+</span
+                ><span class="climb-tier">Diamond</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ (trimmed) ===== -->
+    <section class="faqsec" id="faq">
+      <div class="wrap">
+        <div class="tag reveal">The questions that matter</div>
+        <h2 class="reveal" style="--i: 1">
+          Straight answers to what owners actually ask.
+        </h2>
+        <p class="lead reveal" style="--i: 2">
+          No jargon. No fine print. No surprises.
+        </p>
+        <div class="faq reveal">
+          <details>
+            <summary>
+              What's the catch? Do you take a percentage of my revenue or
+              ownership?
+            </summary>
+            <div class="fa">
+              <b>No. We take no revenue share and no equity.</b> You keep every
+              dollar you earn and full ownership of your practice. Portrait
+              makes money when you order through the marketplace and use the
+              software - the same relationship you have with any supplier. That
+              is the only way we profit from the relationship.
+            </div>
+          </details>
+          <details>
+            <summary>Am I locked into a long-term contract?</summary>
+            <div class="fa">
+              <b>No. Membership renews quarterly.</b> If the economics stop
+              working for you, you leave at the end of your quarter - no
+              penalty, no early termination fee. We do not rely on a long-term
+              contract to keep members. The savings are what keep people here.
+            </div>
+          </details>
+          <details>
+            <summary>Do I need to leave my current distributor?</summary>
+            <div class="fa">
+              <b
+                >No. You can run Portrait alongside your existing supplier from
+                day one.</b
+              >
+              Most owners start with a few of their highest-volume products,
+              compare the pricing, and move more over as the savings prove out.
+              There is no pressure to consolidate immediately and no minimum
+              order requirement to stay active.
+            </div>
+          </details>
+          <details>
+            <summary>If I leave, what happens to my patient data?</summary>
+            <div class="fa">
+              <b>Your data belongs to you.</b> Patient records, charting
+              history, and your patient list are all exportable at any time, at
+              no cost. We do not charge exit fees or restrict access to data you
+              created in the system. You own it on the way in and you own it on
+              the way out.
+            </div>
+          </details>
+          <details>
+            <summary>
+              Will the pricing actually be better for a practice my size?
+            </summary>
+            <div class="fa">
+              <b
+                >For most independent practices that buy their own supply,
+                yes.</b
+              >
+              Portrait aggregates purchasing across 1,200+ member practices,
+              which gives the group access to national-account pricing - the
+              same rates a much larger chain would negotiate. The actual number
+              depends on what you order and how much.
+              <a href="#calc-section"
+                >Run your products through the calculator</a
+              >
+              to see what it looks like at your volume.
+            </div>
+          </details>
+          <details>
+            <summary>Is the EHR actually complimentary?</summary>
+            <div class="fa">
+              <b
+                >Yes. Core EHR access is complimentary at Bronze status and
+                above</b
+              >
+              - no separate license fee and no per-seat charge. The supply
+              savings cover it. Portrait earns when you order, so the software
+              does not need to be a separate line item for the model to work.
+            </div>
+          </details>
+          <details>
+            <summary>How quickly can I be up and running?</summary>
+            <div class="fa">
+              <b
+                >Most practices are placing their first orders within 30
+                days.</b
+              >
+              During setup you get a Customer Success Executive assigned to walk
+              you through onboarding - marketplace access, EHR configuration,
+              and your first orders. Because you are not replacing your existing
+              supplier on day one, you do not need to wait for a full migration
+              before you start seeing the savings.
+            </div>
+          </details>
+        </div>
+        <div class="faqfoot reveal">
+          Still have a question?
+          <a href="#get-started" class="open-gate"
+            >Talk to a real person &rarr;</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="closeform" id="contact">
+      <div class="wrap">
+        <div class="cf-grid">
+          <div class="cf-left">
+            <div class="kb-tag reveal">Your move</div>
+            <h2 class="reveal" style="--i: 1">
+              See exactly what you would keep.
+            </h2>
+            <p class="cf-lead reveal" style="--i: 2">
+              You built a practice people come back to. Tell us what you order
+              and where you are. We'll run your exact mix and send your savings
+              breakdown - no obligation, no pressure.
+            </p>
+            <div class="cf-portrait reveal" style="--i: 3">
+              <img
+                data-src="img/closing-owner.webp"
+                alt="An independent practice owner in her studio"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+          <div class="cf-right reveal" style="--i: 2">
+            <div class="cf-card">
+              <div class="cf-ey">Talk to Portrait</div>
+              <h3 class="cf-h">Get your exact number.</h3>
+              <p class="cf-sub">
+                A minute now, and we'll follow up with your savings breakdown.
+              </p>
+              <div id="hs-contact-form" class="hs-gate"></div>
+              <div class="cf-note">
+                We use this to follow up about Portrait. No spam.
+                <a
+                  href="https://www.portraitcare.com/privacy-policy"
+                  target="_blank"
+                  rel="noopener"
+                  style="color: var(--orange-ink)"
+                  >Privacy</a
+                >.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="foot wrap">
+      <span>A better way to be independent.</span
+      ><span
+        >Portrait Care ·
+        <a
+          href="https://www.portraitcare.com/"
+          target="_blank"
+          rel="noopener"
+          style="color: var(--orange-ink); text-decoration: none"
+          >portraitcare.com</a
+        ></span
+      >
+    </div>
+
+    <!-- ===== LEAD GATE MODAL ===== -->
+    <div class="gate" id="gate" aria-hidden="true">
+      <div
+        class="gate-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gate-title"
+      >
+        <button class="gate-x" id="gateX" type="button" aria-label="Close">
+          &times;
+        </button>
+        <div class="gate-ey">Your full savings, in 60 seconds</div>
+        <h3 id="gate-title">See your exact number.</h3>
+        <p>
+          Price your real product mix, volumes, and status. Tell us where to
+          send your results.
+        </p>
+        <div id="hs-gate-form" class="hs-gate"></div>
+        <div class="gate-note">
+          We use this to send your results and follow up about Portrait. No
+          spam.
+          <a
+            href="https://www.portraitcare.com/privacy-policy"
+            target="_blank"
+            rel="noopener"
+            style="color: var(--orange-ink)"
+            >Privacy</a
+          >.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        // duplicate marquee track for a seamless loop
+        var vt = document.getElementById("vtrack");
+        if (vt) {
+          vt.insertAdjacentHTML("beforeend", vt.innerHTML);
+        }
+        document.querySelectorAll(".marq-dup").forEach(function (t) {
+          t.insertAdjacentHTML("beforeend", t.innerHTML);
+        });
+
+        var prog = document.getElementById("progress");
+        addEventListener(
+          "scroll",
+          function () {
+            var y = scrollY,
+              h = document.documentElement.scrollHeight - innerHeight;
+            if (prog) prog.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+          },
+          { passive: true },
+        );
+
+        /* ---- calculator ----
+Two real layers (validated against ordering history, Jun 2026):
+1) INSTANT savings on supplies = blended ~8% off market on actual member orders
+(flat across tiers; tier drives rebate points + locked pricing, not the per-order discount).
+2) SOFTWARE you stop paying for = conservative equivalent of a real EHR/practice stack,
+below Boulevard's med-spa bundle ($369-421/mo); scales lightly with practice size.
+Rebate points are additional and shown qualitatively (no fabricated figure). */
+        // inst = GMV-weighted instant savings vs market by tier (products_prices x real 12-mo demand, Jun 2026);
+        // reb  = rebate-point value back, by tier. Both rise with tier. NOTE: rebate currently mirrors instant
+        // (products_prices effective_price splits the margin 50/50 at 1pt=$0.01) - pending a finance confirm of
+        // the realized point value; dial reb down here if finance pegs it lower. The calculator combines
+        // instant + reb into one "Saved on supplies" figure.
+        var TIERS = [
+          { n: "Member", cls: "d-mem", q: 0, inst: 0.049, reb: 0.049 },
+          { n: "Bronze", cls: "d-bro", q: 6250, inst: 0.058, reb: 0.058 },
+          { n: "Silver", cls: "d-sil", q: 12500, inst: 0.065, reb: 0.065 },
+          { n: "Gold", cls: "d-gol", q: 25000, inst: 0.074, reb: 0.074 },
+          { n: "Platinum", cls: "d-pla", q: 50000, inst: 0.088, reb: 0.088 },
+          { n: "Diamond", cls: "d-dia", q: 75000, inst: 0.095, reb: 0.095 },
+        ];
+        function softwareMo(m) {
+          return m < 6000 ? 200 : m <= 20000 ? 300 : 400;
+        }
+        // buyer archetypes - match the proof-section buckets; boundaries align to tier thresholds (monthly = qtr/3).
+        // Each reframes WHICH layer dominates that buyer's win.
+        var PERSONAS = [
+          {
+            key: "starter",
+            name: "New Practice",
+            hint: "$3k/mo",
+            preset: 3000,
+            max: 4167,
+            line: "Just starting out, the free practice software is most of your win. Keep your cash for the chair, not the software stack.",
+          },
+          {
+            key: "switcher",
+            name: "Growing Practice",
+            hint: "$6k/mo",
+            preset: 6000,
+            max: 8333,
+            line: "Switching over, you stop paying twice: better prices on supplies and the practice software you already pay for.",
+          },
+          {
+            key: "margin",
+            name: "Established Practice",
+            hint: "$11k/mo",
+            preset: 11000,
+            max: 25000,
+            line: "At your volume, supply savings dominate. That is margin back on every order you already place, compounding every quarter.",
+          },
+          {
+            key: "scaler",
+            name: "High-Volume Practice",
+            hint: "$35k/mo",
+            preset: 35000,
+            max: Infinity,
+            line: "At scale, your volume finally works for you. Supply savings do the heavy lifting, and your rebate rate is at its highest.",
+          },
+        ];
+        function personaFor(m) {
+          for (var i = 0; i < PERSONAS.length; i++) {
+            if (m < PERSONAS[i].max) return PERSONAS[i];
+          }
+          return PERSONAS[PERSONAS.length - 1];
+        }
+        var slider = document.getElementById("slider"),
+          spend = document.getElementById("spend"),
+          keep = document.getElementById("keep"),
+          bSupply = document.getElementById("bSupply"),
+          bSoft = document.getElementById("bSoft"),
+          ladderRow = document.getElementById("ladderRow"),
+          cnote = document.getElementById("cnote"),
+          persRow = document.getElementById("persRow"),
+          persline = document.getElementById("persline");
+        // build ladder pills (tier progression, not a discount slope)
+        ladderRow.innerHTML = TIERS.map(function (t, i) {
+          return (
+            '<div class="pill" data-i="' +
+            i +
+            '"><span class="pd ' +
+            t.cls +
+            '"></span>' +
+            t.n +
+            "</div>"
+          );
+        }).join("");
+        var pills = ladderRow.querySelectorAll(".pill");
+        // build persona chips
+        persRow.innerHTML = PERSONAS.map(function (p, i) {
+          return (
+            '<button type="button" class="pchip" data-i="' +
+            i +
+            '">' +
+            p.name +
+            "<small>" +
+            p.hint +
+            "</small></button>"
+          );
+        }).join("");
+        var pchips = persRow.querySelectorAll(".pchip");
+        var calcStarted = false;
+        function calcEngage() {
+          if (calcStarted) return;
+          calcStarted = true;
+          if (window.gtag) gtag("event", "calc_engaged");
+        }
+        pchips.forEach(function (c) {
+          c.addEventListener("click", function () {
+            var p = PERSONAS[+c.getAttribute("data-i")];
+            slider.value = p.preset;
+            update();
+            calcEngage();
+            if (window.gtag)
+              gtag("event", "calc_persona", {
+                persona: p.name,
+                monthly_spend: p.preset,
+              });
+          });
+        });
+        function fmt(n) {
+          return "$" + Math.round(n).toLocaleString("en-US");
+        }
+        function tierFor(qtr) {
+          var t = TIERS[0];
+          for (var i = 0; i < TIERS.length; i++) {
+            if (qtr >= TIERS[i].q) t = TIERS[i];
+          }
+          return t;
+        }
+        function totalFor(m) {
+          var t = tierFor(m * 3);
+          return m * 12 * t.inst + m * 12 * t.reb + softwareMo(m) * 12;
+        }
+        function update() {
+          var m = +slider.value,
+            qtr = m * 3,
+            t = tierFor(qtr),
+            idx = TIERS.indexOf(t);
+          spend.textContent = fmt(m);
+          slider.style.setProperty(
+            "--pct",
+            ((m - 2500) / (40000 - 2500)) * 100 + "%",
+          );
+          keep.textContent = fmt(totalFor(m));
+          bSupply.textContent = fmt(m * 12 * (t.inst + t.reb));
+          bSoft.textContent = fmt(softwareMo(m) * 12);
+          pills.forEach(function (p, i) {
+            p.classList.toggle("on", i === idx);
+            p.classList.toggle("dia", t.n === "Diamond");
+          });
+          var per = personaFor(m);
+          pchips.forEach(function (c, i) {
+            c.classList.toggle("on", PERSONAS[i].key === per.key);
+          });
+          persline.textContent = per.line;
+        }
+        slider.addEventListener("input", function () {
+          update();
+          calcEngage();
+        });
+        update();
+        // count-up the keep total when the calculator scrolls into view (moved off page-load so the delight lands when it is seen)
+        function animKeep() {
+          if (reduce) return;
+          var target = totalFor(+slider.value),
+            st = null;
+          if (target > 0) {
+            requestAnimationFrame(function step(ts) {
+              if (!st) st = ts;
+              var p = Math.min((ts - st) / 1150, 1);
+              var e = 1 - Math.pow(1 - p, 3);
+              keep.textContent = fmt(target * e);
+              if (p < 1) requestAnimationFrame(step);
+            });
+          }
+        }
+
+        /* ---- reveals + count-ups ---- */
+        function countUp(el) {
+          if (el._cu) return;
+          var mm = el.textContent.trim().match(/^(\D*)([\d,]+)(.*)$/);
+          if (!mm) return;
+          var pre = mm[1],
+            val = parseInt(mm[2].replace(/,/g, ""), 10),
+            suf = mm[3];
+          if (!(val > 0) || reduce) return;
+          el._cu = 1;
+          var st = null;
+          requestAnimationFrame(function step(ts) {
+            if (!st) st = ts;
+            var p = Math.min((ts - st) / 1100, 1);
+            var e = 1 - Math.pow(1 - p, 3);
+            el.textContent =
+              pre + Math.round(val * e).toLocaleString("en-US") + suf;
+            if (p < 1) requestAnimationFrame(step);
+          });
+        }
+        var io = new IntersectionObserver(
+          function (es) {
+            es.forEach(function (e) {
+              if (e.isIntersecting) {
+                var t = e.target;
+                t.classList.add("in");
+                if (t.id === "calc") animKeep();
+                t.querySelectorAll("[data-count]").forEach(countUp);
+                io.unobserve(t);
+              }
+            });
+          },
+          { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
+        );
+        document.querySelectorAll(".reveal, .keepband").forEach(function (el) {
+          io.observe(el);
+        });
+
+        /* ---- sticky savings CTA: appears after the hero, steps aside over the final CTA ---- */
+        (function () {
+          var hero = document.querySelector(".hero-cine");
+          if (!hero) return;
+          var foot = document.querySelector("#contact");
+          var sc = document.createElement("a");
+          sc.className = "stickycta";
+          sc.href =
+            "https://www.portraitcare.com/lp/portrait-save-money-and-expand-access-to-wellness-pharmaceutical-supplies";
+          sc.innerHTML = 'See your savings <span aria-hidden="true">›</span>';
+          document.body.appendChild(sc);
+          sc.addEventListener("click", function (e) {
+            e.preventDefault();
+            openGate(sc.getAttribute("href"));
+          });
+          var heroOut = false,
+            footIn = false;
+          function sync() {
+            sc.classList.toggle("show", heroOut && !footIn);
+          }
+          new IntersectionObserver(
+            function (es) {
+              heroOut = !es[0].isIntersecting;
+              sync();
+            },
+            { threshold: 0 },
+          ).observe(hero);
+          if (foot)
+            new IntersectionObserver(
+              function (es) {
+                footIn = es[0].isIntersecting;
+                sync();
+              },
+              { threshold: 0.01 },
+            ).observe(foot);
+        })();
+
+        /* ---- lead gate ---- */
+        var gate = document.getElementById("gate"),
+          gateX = document.getElementById("gateX"),
+          lastFocus = null;
+        function openGate() {
+          lastFocus = document.activeElement;
+          gate.classList.add("open");
+          gate.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          setTimeout(function () {
+            gateX.focus();
+          }, 80);
+        }
+        function closeGate() {
+          gate.classList.remove("open");
+          gate.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+        document.querySelectorAll(".open-gate").forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            e.preventDefault();
+            openGate();
+            if (window.gtag)
+              gtag("event", "gate_open", {
+                source: (a.textContent || "")
+                  .replace(/\s+/g, " ")
+                  .trim()
+                  .slice(0, 40),
+              });
+          });
+        });
+        /* lead submit - HubSpot fires a global postMessage when the embedded form is submitted */
+        window.addEventListener("message", function (e) {
+          if (
+            e &&
+            e.data &&
+            e.data.type === "hsFormCallback" &&
+            e.data.eventName === "onFormSubmitted" &&
+            window.gtag
+          )
+            gtag("event", "lead_submit", { form: "hubspot" });
+        });
+        gateX.addEventListener("click", closeGate);
+        gate.addEventListener("click", function (e) {
+          if (e.target === gate) closeGate();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (!gate.classList.contains("open")) return;
+          if (e.key === "Escape") {
+            closeGate();
+            return;
+          }
+          if (e.key === "Tab") {
+            var f = [].slice
+              .call(
+                gate.querySelectorAll(
+                  'a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])',
+                ),
+              )
+              .filter(function (el) {
+                return el.offsetParent !== null;
+              });
+            if (!f.length) return;
+            var first = f[0],
+              last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        });
+        if (location.hash === "#get-started") openGate();
+        addEventListener("hashchange", function () {
+          if (location.hash === "#get-started") openGate();
+        });
+        /* HubSpot form - native lead capture, rendered into the gate modal */
+        (function () {
+          var s = document.createElement("script");
+          s.src = "https://js.hsforms.net/forms/embed/v2.js";
+          s.charset = "utf-8";
+          s.onload = function () {
+            if (window.hbspt && hbspt.forms) {
+              hbspt.forms.create({
+                region: "na1",
+                portalId: "20095516",
+                formId: "62ced49e-3508-46dc-b5a0-d7ed8c0660ea",
+                target: "#hs-gate-form",
+              });
+              if (document.getElementById("hs-contact-form"))
+                hbspt.forms.create({
+                  region: "na1",
+                  portalId: "20095516",
+                  formId: "62ced49e-3508-46dc-b5a0-d7ed8c0660ea",
+                  target: "#hs-contact-form",
+                });
+            }
+          };
+          document.head.appendChild(s);
+        })();
+        /* RevenueHero - after the HubSpot form submits, route a qualified lead straight to a booking calendar (router 3771, same form + router as the legacy LP) */
+        (function () {
+          var r = document.createElement("script");
+          r.src = "https://assets.revenuehero.io/scheduler.min.js";
+          r.onload = function () {
+            if (window.RevenueHero) {
+              window.hero = new RevenueHero({ routerId: "3771" });
+              hero.schedule("hsForm_62ced49e-3508-46dc-b5a0-d7ed8c0660ea");
+            }
+          };
+          document.head.appendChild(r);
+        })();
+      })();
+    </script>
+
+    <script>
+      /* hero motion - vanilla replacement for GSAP + ScrollTrigger.
+Combines the scrubbed scroll parallax (translateY 0->5%) and the ambient
+ken-burns drift (scale 1.002->1.055, sine yoyo over 24s) on one transform. */
+      (function () {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var hp = document.querySelector(
+          ".hero-cine .hc-photo img,.hero-cine .hc-photo video",
+        );
+        var hero = document.querySelector(".hero-cine");
+        if (!hp || !hero) return;
+        hp.style.transformOrigin = "0% 45%";
+        hp.style.willChange = "transform";
+        var t0 = performance.now();
+        (function frame(now) {
+          // ken-burns: 48s full yoyo cycle, eased in/out via raised cosine
+          var k = (1 - Math.cos((((now - t0) / 1000) * Math.PI) / 24)) / 2;
+          var scale = 1.002 + 0.053 * k;
+          // parallax: 0 at hero top, 5% as the hero scrolls fully out
+          var r = hero.getBoundingClientRect();
+          var p = Math.min(1, Math.max(0, -r.top / (r.height || 1)));
+          hp.style.transform =
+            "translateY(" +
+            (p * 5).toFixed(3) +
+            "%) scale(" +
+            scale.toFixed(4) +
+            ")";
+          requestAnimationFrame(frame);
+        })(t0);
+      })();
+    </script>
+  </body>
+</html>

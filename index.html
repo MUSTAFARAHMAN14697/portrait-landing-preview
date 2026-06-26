@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      /* Critical, self-contained gate + loader. Independent of styles.css so
-         the spinner shows while (and before) the external CSS loads. The page
-         content stays hidden until the stylesheet is confirmed loaded. */
       body {
         visibility: hidden;
       }
@@ -34,7 +31,6 @@
           transform: rotate(360deg);
         }
       }
-      /* Revealed only once the stylesheet has loaded (JS adds .ready). */
       html.ready body {
         visibility: visible;
       }
@@ -59,7 +55,6 @@
           head.appendChild(l);
           return l;
         }
-        // Always preload the stylesheet (highest priority) and the hero image.
         link({ rel: "preload", as: "style", href: BASE_URL + "/styles.css" });
         link({
           rel: "preload",
@@ -67,8 +62,6 @@
           fetchpriority: "high",
           href: BASE_URL + "/img/hero-poster.webp",
         });
-        // Apply the stylesheet. Reveal the page only once it actually loads;
-        // on failure the page is never shown (per requirement).
         var css = link({ rel: "stylesheet", href: BASE_URL + "/styles.css" });
         function reveal() {
           document.documentElement.classList.add("ready");
@@ -86,27 +79,24 @@
         }
         if (css.sheet) reveal();
         else css.addEventListener("load", reveal);
-        // No onerror handler: a failed stylesheet keeps the loader spinning
-        // and the page hidden (per requirement).
       })();
     </script>
-    <!-- Google Analytics (GA4 - same property as portraitcare.com) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-2XV9CDXSVX"
-    ></script>
     <script>
+      window.LP_GA_ID = "G-V5DJ90BQ4R";
+      window.LP_SOURCE = "portrait_lp_mstfa";
+      (function () {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + LP_GA_ID;
+        document.head.appendChild(s);
+      })();
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-2XV9CDXSVX");
+      gtag("config", LP_GA_ID, { send_page_view: false });
     </script>
-    <!-- SEO (title, description, canonical, robots, Open Graph/Twitter) and
-         favicon are managed by Webflow at the page level. Do not add them here,
-         or they will conflict with Webflow's tags (a stray noindex would
-         deindex the page). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -120,7 +110,6 @@
     </div>
     <div class="grain"></div>
     <div class="progress" id="progress"></div>
-    <!-- ===== HERO ===== -->
     <header class="hero-cine" id="main">
       <div class="hc-photo">
         <img
@@ -159,8 +148,6 @@
         </div>
       </div>
     </header>
-
-    <!-- ===== CALCULATOR (moved up) ===== -->
     <section class="scene calcsec" id="calc-section">
       <div class="wrap">
         <div class="tag reveal">See what you keep</div>
@@ -266,8 +253,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ===== PROOF: MEMBER VIDEOS + CASE STUDIES (merged, dark) ===== -->
     <section class="scene dark vidsec">
       <div class="wrap">
         <div class="tag reveal">Real members, real results</div>
@@ -430,8 +415,6 @@
         </p>
       </div>
     </section>
-
-    <!-- ===== HOW PORTRAIT COMPARES ===== -->
     <section class="scene paper" style="background: var(--bg)">
       <div class="wrap">
         <div class="tag reveal">Why independent practices choose Portrait</div>
@@ -562,8 +545,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ===== WHAT PORTRAIT IS (marketplace + system, merged) ===== -->
     <section class="scene paper">
       <div class="wrap">
         <div class="tag reveal">What Portrait is</div>
@@ -816,8 +797,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ===== TWO WAYS IN (moved above FAQ) ===== -->
     <section class="scene paper" id="start">
       <div class="wrap">
         <div class="tag reveal">Two ways to start</div>
@@ -935,8 +914,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ===== FAQ (trimmed) ===== -->
     <section class="faqsec" id="faq">
       <div class="wrap">
         <div class="tag reveal">The questions that matter</div>
@@ -1046,7 +1023,6 @@
         </div>
       </div>
     </section>
-
     <section class="closeform" id="contact">
       <div class="wrap">
         <div class="cf-grid">
@@ -1105,8 +1081,6 @@
         ></span
       >
     </div>
-
-    <!-- ===== LEAD GATE MODAL ===== -->
     <div class="gate" id="gate" aria-hidden="true">
       <div
         class="gate-card"
@@ -1137,10 +1111,7 @@
         </div>
       </div>
     </div>
-
     <script>
-      // Resolve every image against BASE_URL. Runs before the marquee clones
-      // below, so the duplicated thumbnails inherit the absolute S3 src.
       (function () {
         var imgs = document.querySelectorAll("img[data-src]");
         for (var i = 0; i < imgs.length; i++) {
@@ -1148,7 +1119,6 @@
         }
       })();
     </script>
-
     <script>
       (function () {
         var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1159,7 +1129,6 @@
         document.querySelectorAll(".marq-dup").forEach(function (t) {
           t.insertAdjacentHTML("beforeend", t.innerHTML);
         });
-
         var prog = document.getElementById("progress");
         addEventListener(
           "scroll",
@@ -1170,19 +1139,6 @@
           },
           { passive: true },
         );
-
-        /* ---- calculator ----
-Two real layers (validated against ordering history, Jun 2026):
-1) INSTANT savings on supplies = blended ~8% off market on actual member orders
-(flat across tiers; tier drives rebate points + locked pricing, not the per-order discount).
-2) SOFTWARE you stop paying for = conservative equivalent of a real EHR/practice stack,
-below Boulevard's med-spa bundle ($369-421/mo); scales lightly with practice size.
-Rebate points are additional and shown qualitatively (no fabricated figure). */
-        // inst = GMV-weighted instant savings vs market by tier (products_prices x real 12-mo demand, Jun 2026);
-        // reb  = rebate-point value back, by tier. Both rise with tier. NOTE: rebate currently mirrors instant
-        // (products_prices effective_price splits the margin 50/50 at 1pt=$0.01) - pending a finance confirm of
-        // the realized point value; dial reb down here if finance pegs it lower. The calculator combines
-        // instant + reb into one "Saved on supplies" figure.
         var TIERS = [
           { n: "Member", cls: "d-mem", q: 0, inst: 0.049, reb: 0.049 },
           { n: "Bronze", cls: "d-bro", q: 6250, inst: 0.058, reb: 0.058 },
@@ -1194,8 +1150,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
         function softwareMo(m) {
           return m < 6000 ? 200 : m <= 20000 ? 300 : 400;
         }
-        // buyer archetypes - match the proof-section buckets; boundaries align to tier thresholds (monthly = qtr/3).
-        // Each reframes WHICH layer dominates that buyer's win.
         var PERSONAS = [
           {
             key: "starter",
@@ -1245,7 +1199,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
           cnote = document.getElementById("cnote"),
           persRow = document.getElementById("persRow"),
           persline = document.getElementById("persline");
-        // build ladder pills (tier progression, not a discount slope)
         ladderRow.innerHTML = TIERS.map(function (t, i) {
           return (
             '<div class="pill" data-i="' +
@@ -1258,7 +1211,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
           );
         }).join("");
         var pills = ladderRow.querySelectorAll(".pill");
-        // build persona chips
         persRow.innerHTML = PERSONAS.map(function (p, i) {
           return (
             '<button type="button" class="pchip" data-i="' +
@@ -1275,7 +1227,11 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
         function calcEngage() {
           if (calcStarted) return;
           calcStarted = true;
-          if (window.gtag) gtag("event", "calc_engaged");
+          if (window.gtag)
+            gtag("event", "calc_engaged", {
+              send_to: LP_GA_ID,
+              lp_source: LP_SOURCE,
+            });
         }
         pchips.forEach(function (c) {
           c.addEventListener("click", function () {
@@ -1285,6 +1241,8 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
             calcEngage();
             if (window.gtag)
               gtag("event", "calc_persona", {
+                send_to: LP_GA_ID,
+                lp_source: LP_SOURCE,
                 persona: p.name,
                 monthly_spend: p.preset,
               });
@@ -1332,7 +1290,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
           calcEngage();
         });
         update();
-        // count-up the keep total when the calculator scrolls into view (moved off page-load so the delight lands when it is seen)
         function animKeep() {
           if (reduce) return;
           var target = totalFor(+slider.value),
@@ -1347,8 +1304,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
             });
           }
         }
-
-        /* ---- reveals + count-ups ---- */
         function countUp(el) {
           if (el._cu) return;
           var mm = el.textContent.trim().match(/^(\D*)([\d,]+)(.*)$/);
@@ -1385,8 +1340,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
         document.querySelectorAll(".reveal, .keepband").forEach(function (el) {
           io.observe(el);
         });
-
-        /* ---- sticky savings CTA: appears after the hero, steps aside over the final CTA ---- */
         (function () {
           var hero = document.querySelector(".hero-cine");
           if (!hero) return;
@@ -1422,8 +1375,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
               { threshold: 0.01 },
             ).observe(foot);
         })();
-
-        /* ---- lead gate ---- */
         var gate = document.getElementById("gate"),
           gateX = document.getElementById("gateX"),
           lastFocus = null;
@@ -1448,6 +1399,8 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
             openGate();
             if (window.gtag)
               gtag("event", "gate_open", {
+                send_to: LP_GA_ID,
+                lp_source: LP_SOURCE,
                 source: (a.textContent || "")
                   .replace(/\s+/g, " ")
                   .trim()
@@ -1455,7 +1408,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
               });
           });
         });
-        /* lead submit - HubSpot fires a global postMessage when the embedded form is submitted */
         window.addEventListener("message", function (e) {
           if (
             e &&
@@ -1464,7 +1416,11 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
             e.data.eventName === "onFormSubmitted" &&
             window.gtag
           )
-            gtag("event", "lead_submit", { form: "hubspot" });
+            gtag("event", "lead_submit", {
+              send_to: LP_GA_ID,
+              lp_source: LP_SOURCE,
+              form: "hubspot",
+            });
         });
         gateX.addEventListener("click", closeGate);
         gate.addEventListener("click", function (e) {
@@ -1502,7 +1458,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
         addEventListener("hashchange", function () {
           if (location.hash === "#get-started") openGate();
         });
-        /* HubSpot form - native lead capture, rendered into the gate modal */
         (function () {
           var s = document.createElement("script");
           s.src = "https://js.hsforms.net/forms/embed/v2.js";
@@ -1526,7 +1481,6 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
           };
           document.head.appendChild(s);
         })();
-        /* RevenueHero - after the HubSpot form submits, route a qualified lead straight to a booking calendar (router 3771, same form + router as the legacy LP) */
         (function () {
           var r = document.createElement("script");
           r.src = "https://assets.revenuehero.io/scheduler.min.js";
@@ -1540,11 +1494,7 @@ Rebate points are additional and shown qualitatively (no fabricated figure). */
         })();
       })();
     </script>
-
     <script>
-      /* hero motion - vanilla replacement for GSAP + ScrollTrigger.
-Combines the scrubbed scroll parallax (translateY 0->5%) and the ambient
-ken-burns drift (scale 1.002->1.055, sine yoyo over 24s) on one transform. */
       (function () {
         if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         var hp = document.querySelector(
@@ -1556,10 +1506,8 @@ ken-burns drift (scale 1.002->1.055, sine yoyo over 24s) on one transform. */
         hp.style.willChange = "transform";
         var t0 = performance.now();
         (function frame(now) {
-          // ken-burns: 48s full yoyo cycle, eased in/out via raised cosine
           var k = (1 - Math.cos((((now - t0) / 1000) * Math.PI) / 24)) / 2;
           var scale = 1.002 + 0.053 * k;
-          // parallax: 0 at hero top, 5% as the hero scrolls fully out
           var r = hero.getBoundingClientRect();
           var p = Math.min(1, Math.max(0, -r.top / (r.height || 1)));
           hp.style.transform =
